@@ -1,6 +1,4 @@
-import {
-  createSlice,
-} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   hotels: [],
@@ -8,12 +6,10 @@ const initialState = {
 };
 
 const hotelsSlice = createSlice({
-  name: 'hotels',
+  name: "hotels",
   initialState,
   reducers: {
-    addHotel: (state, {
-      payload,
-    }) => {
+    addHotel: (state, { payload }) => {
       // eslint-disable-next-line no-param-reassign
       state.hotels = payload;
       // eslint-disable-next-line no-param-reassign

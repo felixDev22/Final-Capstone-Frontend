@@ -1,18 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const RESERVE_ACTION_TYPE = 'reserveHotel';
+const RESERVE_ACTION_TYPE = "reserveHotel";
 
 const reserveHotel = createAsyncThunk(
   RESERVE_ACTION_TYPE,
   async (data, thunkAPI) => {
     const reserveUrl =
-      'https://kefi-hotel-booking-app.onrender.com/api/v1/reservations';
+      "https://kefi-hotel-booking-app.onrender.com/api/v1/reservations";
     try {
       const response = await axios.post(reserveUrl, data, {
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
       });
 
@@ -28,11 +28,11 @@ const reserveHotel = createAsyncThunk(
 
 const initialState = {
   reservation: null,
-  error: '',
+  error: "",
 };
 
 const reserveSlice = createSlice({
-  name: 'reserve',
+  name: "reserve",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(reserveHotel.pending, (state) => {
@@ -51,7 +51,7 @@ const reserveSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.reservation = initialState.reservation;
       // eslint-disable-next-line no-param-reassign
-      state.error = 'error';
+      state.error = "error";
     });
   },
 });

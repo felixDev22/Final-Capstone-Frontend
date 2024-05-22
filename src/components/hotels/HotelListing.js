@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import Hotel from '../hotel/hotel';
-import rightarr from '../../Assets/rightarr.png';
-import leftarr from '../../Assets/leftarr.png';
-import './hotellisting.css';
-import '../Delete/Delete.css';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import Hotel from "../hotel/hotel";
+import rightarr from "../../Assets/rightarr.png";
+import leftarr from "../../Assets/leftarr.png";
+import "./hotellisting.css";
+import "../Delete/Delete.css";
 
 export default function HotelListing() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,10 +28,10 @@ export default function HotelListing() {
         onClick={handlePrev}
       />
       <div className="hotelList">
-        {hotels.length > 0
-            && hotels
-              .slice(currentIndex, currentIndex + numVisibleHotels)
-              .map((hotel) => <Hotel hotel={hotel} key={hotel.id} />)}
+        {hotels.length > 0 &&
+          hotels
+            .slice(currentIndex, currentIndex + numVisibleHotels)
+            .map((hotel) => <Hotel hotel={hotel} key={hotel.id} />)}
       </div>
       <img
         src={rightarr}

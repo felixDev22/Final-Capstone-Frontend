@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function HotelItem({ hotel, onDelete }) {
   return (
@@ -8,7 +8,11 @@ function HotelItem({ hotel, onDelete }) {
       <div className="hotelDetails">
         <h3 className="hotelName">{hotel.name}</h3>
       </div>
-      <button className="btnssz" type="button" onClick={() => onDelete(hotel.id)}>
+      <button
+        className="btnssz"
+        type="button"
+        onClick={() => onDelete(hotel.id)}
+      >
         Delete
       </button>
     </div>

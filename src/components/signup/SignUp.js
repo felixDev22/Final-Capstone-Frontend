@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
-import { Navigate } from 'react-router-dom';
-import '../login/login.css';
-import axios from 'axios';
-import { registerUser } from '../../features/slices/auth/register';
-import logo from '../../Assets/KefI-logo-white.png';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import { Navigate } from "react-router-dom";
+import "../login/login.css";
+import axios from "axios";
+import { registerUser } from "../../features/slices/auth/register";
+import logo from "../../Assets/KefI-logo-white.png";
 
 export default function SignUp() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const errorStrings = useSelector((state) => state.register.errors);
@@ -24,7 +24,7 @@ export default function SignUp() {
     e.preventDefault();
     axios
       .post(
-        'https://kefi-hotel-booking-app.onrender.com/signup',
+        "https://kefi-hotel-booking-app.onrender.com/signup",
         {
           user: {
             name,
@@ -33,17 +33,17 @@ export default function SignUp() {
             passwordConfirmation,
           },
         },
-        { withCredentials: true }
+        { withCredentials: true },
       )
       .then((response) => {
-        if (response.data.status === 'created') {
+        if (response.data.status === "created") {
           // eslint-disable-next-line no-console
-          console.log('Registration data', response.data);
+          console.log("Registration data", response.data);
         }
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
-        console.log('registration error', error);
+        console.log("registration error", error);
       });
     dispatch(
       registerUser({
@@ -52,7 +52,7 @@ export default function SignUp() {
           email,
           password,
         },
-      })
+      }),
     );
   };
   return (
@@ -97,7 +97,7 @@ export default function SignUp() {
               <div className="input-filed">
                 <div className="input-wrapper">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     className="input"
                     id="password"
                     required
@@ -117,7 +117,7 @@ export default function SignUp() {
               <div className="input-filed">
                 <div className="input-wrapper">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     className="input"
                     id="confirm-password"
                     required

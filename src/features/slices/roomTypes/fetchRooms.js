@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const RESERVE_ACTION_TYPE = 'fetchRooms';
+const RESERVE_ACTION_TYPE = "fetchRooms";
 
 export const readRooms = createAsyncThunk(
   RESERVE_ACTION_TYPE,
@@ -10,8 +10,8 @@ export const readRooms = createAsyncThunk(
     try {
       const response = await axios.get(roomUrl, {
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
       });
 
@@ -27,11 +27,11 @@ export const readRooms = createAsyncThunk(
 
 const initialState = {
   rooms: [],
-  error: '',
+  error: "",
 };
 
 const roomTypeSlice = createSlice({
-  name: 'roomType',
+  name: "roomType",
   initialState,
 
   extraReducers: (builder) => {
@@ -51,7 +51,7 @@ const roomTypeSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.rooms = initialState.rooms;
       // eslint-disable-next-line no-param-reassign
-      state.error = 'error';
+      state.error = "error";
     });
   },
 });

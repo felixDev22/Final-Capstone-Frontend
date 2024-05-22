@@ -1,12 +1,12 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import conference from '../../Assets/conference.png';
-import reception from '../../Assets/reception.png';
-import spa from '../../Assets/spa.png';
-import room1 from '../../Assets/room1.png';
-import dinning from '../../Assets/dining.png';
-import play from '../../Assets/play.png';
-import './services.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import conference from "../../Assets/conference.png";
+import reception from "../../Assets/reception.png";
+import spa from "../../Assets/spa.png";
+import room1 from "../../Assets/room1.png";
+import dinning from "../../Assets/dining.png";
+import play from "../../Assets/play.png";
+import "./services.css";
 
 export default function Services() {
   return (

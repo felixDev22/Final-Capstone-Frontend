@@ -1,20 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 // Define a persist config for the login slice
 
-export const loginUser = createAsyncThunk('login', async (data, thunkAPI) => {
-  const loginUrl = 'https://kefi-hotel-booking-app.onrender.com/login';
+export const loginUser = createAsyncThunk("login", async (data, thunkAPI) => {
+  const loginUrl = "https://kefi-hotel-booking-app.onrender.com/login";
   try {
     const response = await axios.post(loginUrl, data, {
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      credentials: 'includ',
+      credentials: "includ",
       withCredentials: true,
     });
-    localStorage.setItem('userData', JSON.stringify(response.data.user));
+    localStorage.setItem("userData", JSON.stringify(response.data.user));
     if (response.status === 200) {
       return response.data;
     }
@@ -25,9 +25,9 @@ export const loginUser = createAsyncThunk('login', async (data, thunkAPI) => {
 });
 
 // add for logoutUser
-export const logoutUser = createAsyncThunk('logout', async (_, thunkAPI) => {
+export const logoutUser = createAsyncThunk("logout", async (_, thunkAPI) => {
   try {
-    await axios.post('https://kefi-hotel-booking-app.onrender.com/logout');
+    await axios.post("https://kefi-hotel-booking-app.onrender.com/logout");
     return { logged_out: true };
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -38,10 +38,10 @@ const initialState = {
   data: {},
   islogged: false,
   isloggedOut: false,
-  errors: '',
+  errors: "",
 };
 const loginSlice = createSlice({
-  name: 'login',
+  name: "login",
   initialState,
   extraReducers: (builder) => {
     builder

@@ -1,14 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './hotel.css';
-import { Link } from 'react-router-dom';
-import vec from '../../Assets/vec.png';
+import React from "react";
+import PropTypes from "prop-types";
+import "./hotel.css";
+import { Link } from "react-router-dom";
+import vec from "../../Assets/vec.png";
 
 export default function Hotel({ hotel }) {
   const maxDescLength = 115;
-  const truncatedDesc = hotel.desc.length > maxDescLength
-    ? `${hotel.desc.slice(0, maxDescLength)}...`
-    : hotel.desc;
+  const truncatedDesc =
+    hotel.desc.length > maxDescLength
+      ? `${hotel.desc.slice(0, maxDescLength)}...`
+      : hotel.desc;
 
   return (
     <div className="card">
@@ -31,18 +32,10 @@ export default function Hotel({ hotel }) {
         </ul>
         <div className="price">
           <p>
-            Price:
-            {' '}
-            <span>
-              $
-              {hotel.price}
-            </span>
+            Price: <span>${hotel.price}</span>
           </p>
         </div>
-        <p className="card-text">
-          {' '}
-          {truncatedDesc}
-        </p>
+        <p className="card-text"> {truncatedDesc}</p>
         <Link
           to={{
             pathname: `/hotel/${hotel.id}/reserve`,
