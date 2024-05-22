@@ -1,6 +1,4 @@
-import {
-  BrowserRouter as Router, Route, Routes, useLocation,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import Delete from './components/Delete/Delete';
 import Splash from './components/splash/Splash';
@@ -19,9 +17,9 @@ import './App.css';
 // eslint-disable-next-line react/function-component-definition
 const App = () => (
   <div className="App">
-    <Router>
+    <BrowserRouter>
       <AppContent />
-    </Router>
+    </BrowserRouter>
   </div>
 );
 
@@ -46,12 +44,8 @@ function AppContent() {
         <Route path="/add-hotels" element={<AddHotel />} />
         <Route path="/hotel/:id/reserve" element={<Reserve />} />
         <Route path="/our-services" element={<Services />} />
-        <Route
-          path="/hotels/:hotel_id/rooms"
-          element={<Room />}
-        />
+        <Route path="/hotels/:hotel_id/rooms" element={<Room />} />
         <Route path="*" exact element={<NotFound />} />
-
       </Routes>
     </>
   );
