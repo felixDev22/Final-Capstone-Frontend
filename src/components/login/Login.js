@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
-import { Navigate } from "react-router-dom";
-import { loginUser } from "../../features/slices/auth/login";
-import "./login.css";
-import logo from "../../Assets/KefI-logo-green.png";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import { Navigate } from 'react-router-dom';
+import { loginUser } from '../../features/slices/auth/login';
+import './login.css';
+import logo from '../../Assets/KefI-logo-green.png';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const islogged = useSelector((state) => state.login.islogged);
@@ -67,7 +67,7 @@ export default function Login() {
               <div className="input-filed">
                 <div className="input-wrapper">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     className="input"
                     id="password"
                     required

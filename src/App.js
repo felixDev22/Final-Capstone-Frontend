@@ -3,21 +3,21 @@ import {
   Route,
   Routes,
   useLocation,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import Delete from "./components/Delete/Delete";
-import Splash from "./components/splash/Splash";
-import Login from "./components/login/Login";
-import SignUp from "./components/signup/SignUp";
-import Main from "./components/main/Main";
-import Room from "./components/Rooms/Room";
-import AddHotel from "./components/addHotel/AddHotel";
-import Reserve from "./components/Reseve/Reserve";
-import Navigation from "./components/navigation/Navigation";
-import Services from "./components/ourServices/Services";
-import ReservedHotel from "./components/Reservation/ReservedHotel";
-import NotFound from "./components/Not Found/NotFound";
-import "./App.css";
+import Delete from './components/Delete/Delete';
+import Splash from './components/splash/Splash';
+import Login from './components/login/Login';
+import SignUp from './components/signup/SignUp';
+import Main from './components/main/Main';
+import Room from './components/Rooms/Room';
+import AddHotel from './components/addHotel/AddHotel';
+import Reserve from './components/Reseve/Reserve';
+import Navigation from './components/navigation/Navigation';
+import Services from './components/ourServices/Services';
+import ReservedHotel from './components/Reservation/ReservedHotel';
+import NotFound from './components/Not Found/NotFound';
+import './App.css';
 
 function App() {
   return (
@@ -31,9 +31,9 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
-  const isSplashPage = location.pathname === "/";
-  const isLoginPage = location.pathname === "/login";
-  const isSignupPage = location.pathname === "/signup";
+  const isSplashPage = location.pathname === '/';
+  const isLoginPage = location.pathname === '/login';
+  const isSignupPage = location.pathname === '/signup';
 
   return (
     <>

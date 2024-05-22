@@ -1,5 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-export default axios.create({
-  baseURL: "https://kefi-hotel-booking-app.onrender.com/api/v1/hotels",
+const axiosInstance = axios.create({
+  baseURL: 'https://kefi-hotel-booking-app.onrender.com/api/v1',
+  withCredentials: true,
 });
+
+export default axiosInstance;
