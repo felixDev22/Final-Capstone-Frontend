@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000/api/v1/';
+const BASE_URL = 'https://kefi-hotel-booking-app.onrender.com/api/v1/';
 
 export const registerUser = async (user) => {
   // eslint-disable-next-line no-useless-catch
