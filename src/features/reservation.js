@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   reservation: [],
 };
 
 const reservationSlice = createSlice({
-  name: "reservation",
+  name: 'reservation',
   initialState,
   reducers: {
     addReservation: (state, { payload }) => {

@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import axios from "axios";
-import { Navigate } from "react-router-dom";
-import { newHotel } from "../../features/hotels";
-import "../login/login.css";
-import "./addHotel.css";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+import { newHotel } from '../../features/hotels';
+import '../login/login.css';
+import './addHotel.css';
 
 function AddHotel() {
   const dispatch = useDispatch();
-  const [hotelName, setHotelName] = useState("");
-  const [photoURL, setPhotoURL] = useState("");
-  const [rating, setRating] = useState("");
-  const [location, setLocation] = useState("");
-  const [price, setPrice] = useState("");
-  const [desc, setDesc] = useState("");
+  const [hotelName, setHotelName] = useState('');
+  const [photoURL, setPhotoURL] = useState('');
+  const [rating, setRating] = useState('');
+  const [location, setLocation] = useState('');
+  const [price, setPrice] = useState('');
+  const [desc, setDesc] = useState('');
   const [isSent, setSent] = useState(false);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("userData"));
+    const user = JSON.parse(localStorage.getItem('userData'));
     if (user) {
       setUser(user);
     }
@@ -36,7 +36,7 @@ function AddHotel() {
       desc,
     };
     axios
-      .post("https://kefi-hotel-booking-app.onrender.com/api/v1/hotels", data)
+      .post('https://kefi-hotel-booking-app.onrender.com/api/v1/hotels', data)
       .then((response) => {
         dispatch(newHotel(response.data));
         setSent(true);

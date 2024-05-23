@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import twitter from "../../Assets/twitter.png";
-import linkedin from "../../Assets/linkedin.png";
-import github from "../../Assets/github.png";
-import web from "../../Assets/web.png";
-import { twitterLinks, linkedinLinks, githubLinks, webLinks } from "./Data";
+import React, { useState } from 'react';
+import twitter from '../../Assets/twitter.png';
+import linkedin from '../../Assets/linkedin.png';
+import github from '../../Assets/github.png';
+import web from '../../Assets/web.png';
+import {
+  twitterLinks, linkedinLinks, githubLinks, webLinks,
+} from './Data';
 
 function SocialLinks() {
   const [showTwitterLinks, setShowTwitterLinks] = useState(false);

@@ -102,7 +102,9 @@ function ReservedHotel() {
           </h1>
           <p className="text-dark">
             {' '}
-            You can not reserve. <br /> There are no hotels yet in the system
+            You can not reserve.
+            { ' '}
+            There are no hotels yet in the system
           </p>
         </div>
       )}

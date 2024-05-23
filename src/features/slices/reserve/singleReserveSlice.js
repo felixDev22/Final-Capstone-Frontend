@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
   hotel: [],
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const fetchHotel = createAsyncThunk(
-  "hotels/fetchHotel",
+  'hotels/fetchHotel',
   async (hotelId, thunkAPI) => {
     try {
       const response = await axios.get(
@@ -27,7 +27,7 @@ export const fetchHotel = createAsyncThunk(
 );
 
 const singleHotelSlice = createSlice({
-  name: "singleHotel",
+  name: 'singleHotel',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -54,8 +54,7 @@ const singleHotelSlice = createSlice({
   },
 });
 
-export const { actions: singleHotelActions, reducer: singleHotelReducer } =
-  singleHotelSlice;
+export const { actions: singleHotelActions, reducer: singleHotelReducer } = singleHotelSlice;
 
 export const selectSingleHotel = (state) => state.singleHotel.hotel;
 export const selectSingleHotelLoading = (state) => state.singleHotel.loading;

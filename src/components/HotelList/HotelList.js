@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import HotelItem from "../HotelItem/HotelItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import HotelItem from '../HotelItem/HotelItem';
 
 function HotelList({ hotels, onDelete }) {
   return (

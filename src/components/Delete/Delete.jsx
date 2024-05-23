@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { addHotel, deleteHotel } from '../../features/hotels';
+import { addHotel, deleteHotel, clearAll } from '../../features/hotels';
 import './Delete.css';
 import rectangle from '../../Assets/rectangle.png';
 import HotelList from '../HotelList/HotelList';
@@ -32,6 +32,7 @@ function Delete() {
     axios
       .delete(`https://kefi-hotel-booking-app.onrender.com/api/v1/hotels/${id}`)
       .then((response) => {
+        // eslint-disable-next-line no-console
         console.log(response);
         dispatch(deleteHotel(id));
       })
@@ -49,11 +50,18 @@ function Delete() {
     }
   }, []);
 
+  // const handleClearAll = () =>{
+  //     dispatch(clearAll()); }
+
   return (
     <>
       {hotelLength < 1 && (
         <div className="no-hotels-container">
-          <h1>Welcome {user.name}</h1>
+          <h1>
+            Welcome
+            {' '}
+            {user.name}
+          </h1>
           <p className="text-dark"> There are no hotels yet</p>
           <a href="/add-hotels" className=" btn btn-primary">
             Add Hotel
@@ -67,6 +75,7 @@ function Delete() {
             <img src={rectangle} alt="rectangle" />
             <p>Changed your mind yet? Delete some hotels</p>
           </div>
+          <button className="btnssz" type="button" onClick={() => { dispatch(clearAll()); }}> Clear All </button>
           <HotelList hotels={hotels} onDelete={handleDelete} />
         </div>
       )}

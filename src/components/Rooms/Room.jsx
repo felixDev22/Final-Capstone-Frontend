@@ -11,7 +11,8 @@ function Room() {
   const dispatch = useDispatch();
   const rooms = useSelector((state) => state.rooms.rooms);
 
-  const { hotelId } = useParams();
+  const url = useParams();
+  const hotelId = url.hotel_id;
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -21,7 +22,7 @@ function Room() {
     const fetchRooms = async () => {
       try {
         const response = await axios.get(
-          `https://kefi-hotel-booking-app.onrender.com/api/v1/hotels/${hotelId}/rooms`
+          `https://kefi-hotel-booking-app.onrender.com/api/v1/hotels/${hotelId}/rooms`,
         );
         dispatch(addRooms(response.data));
       } catch (error) {
@@ -34,9 +35,7 @@ function Room() {
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentSlide((prevSlide) =>
-        prevSlide === rooms.length - 1 ? 0 : prevSlide + 1
-      );
+      setCurrentSlide((prevSlide) => (prevSlide === rooms.length - 1 ? 0 : prevSlide + 1));
     }, 3000);
 
     return () => {
@@ -58,11 +57,10 @@ function Room() {
       <div className="slideshowz">
         {rooms.map((room, index) => {
           // eslint-disable-next-line no-nested-ternary
-          const slideClass =
-            index === currentSlide
-              ? 'room aactive'
-              : index === currentSlide - 1 ||
-                (currentSlide === 0 && index === rooms.length - 1)
+          const slideClass = index === currentSlide
+            ? 'room aactive'
+            : index === currentSlide - 1
+                || (currentSlide === 0 && index === rooms.length - 1)
               ? 'room previous'
               : 'room next';
 

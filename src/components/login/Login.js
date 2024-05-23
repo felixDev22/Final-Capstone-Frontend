@@ -48,7 +48,13 @@ export default function Login() {
               <span className="line" />
               <h1>Welcome!</h1>
             </div>
-            {error && <p> {error} </p>}
+            {error && (
+            <p>
+              {' '}
+              {error}
+              {' '}
+            </p>
+            )}
             {islogged && <Navigate to="/main" replace />}
             <form onSubmit={handleSubmit}>
               <div className="input-filed">

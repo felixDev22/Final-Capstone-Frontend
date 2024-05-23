@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   hotels: [],
@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const hotelsSlice = createSlice({
-  name: "hotels",
+  name: 'hotels',
   initialState,
   reducers: {
     addHotel: (state, { payload }) => {
@@ -29,8 +29,14 @@ const hotelsSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.loading = true;
     },
+    clearAll: (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.hotels = [];
+    },
   },
 });
 
-export const { addHotel, deleteHotel, newHotel } = hotelsSlice.actions;
+export const {
+  addHotel, deleteHotel, newHotel, clearAll,
+} = hotelsSlice.actions;
 export default hotelsSlice.reducer;
