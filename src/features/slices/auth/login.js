@@ -4,7 +4,7 @@ import axios from 'axios';
 // Define a persist config for the login slice
 
 export const loginUser = createAsyncThunk('login', async (data, thunkAPI) => {
-  const loginUrl = 'https://kefi-hotel-booking-app.onrender.com/login';
+  const loginUrl = 'https://kefi-hotel-app-frontend.onrender.com/login';
   try {
     const response = await axios.post(loginUrl, data, {
       headers: {

@@ -4,7 +4,7 @@ import axios from 'axios';
 export const registerUser = createAsyncThunk(
   'register',
   async (data, thunkAPI) => {
-    const registerUrl = 'https://kefi-hotel-booking-app.onrender.com/signup';
+    const registerUrl = 'https://kefi-hotel-app-frontend.onrender.com/signup';
 
     try {
       const response = await axios.post(registerUrl, data, {
