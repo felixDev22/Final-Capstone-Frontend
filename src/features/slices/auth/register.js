@@ -1,13 +1,10 @@
-import {
-  createSlice,
-  createAsyncThunk,
-} from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const registerUser = createAsyncThunk(
   'register',
   async (data, thunkAPI) => {
-    const registerUrl = 'http://127.0.0.1:3000/signup';
+    const registerUrl = 'https://kefi-hotel-booking-app.onrender.com/signup';
 
     try {
       const response = await axios.post(registerUrl, data, {
@@ -38,12 +35,13 @@ const registerSlice = createSlice({
   name: 'register',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(registerUser.fulfilled, (state, action) => {
-      // eslint-disable-next-line no-param-reassign
-      state.data = action.payload.data;
-      // eslint-disable-next-line no-param-reassign
-      state.iscreated = action.payload.iscreated;
-    })
+    builder
+      .addCase(registerUser.fulfilled, (state, action) => {
+        // eslint-disable-next-line no-param-reassign
+        state.data = action.payload.data;
+        // eslint-disable-next-line no-param-reassign
+        state.iscreated = action.payload.iscreated;
+      })
       .addCase(registerUser.rejected, (state) => {
         // eslint-disable-next-line no-param-reassign
         state.errors = 'Email has already been taken';

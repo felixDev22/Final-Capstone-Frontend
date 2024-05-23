@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const logoutUser = createAsyncThunk('logout', async (_, thunkAPI) => {
-  const logoutUrl = 'http://127.0.0.1:3000/logout';
+  const logoutUrl = 'https://kefi-hotel-booking-app.onrender.com/logout';
 
   try {
     await axios.post(logoutUrl);

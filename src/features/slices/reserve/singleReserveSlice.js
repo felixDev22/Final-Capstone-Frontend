@@ -12,7 +12,7 @@ export const fetchHotel = createAsyncThunk(
   async (hotelId, thunkAPI) => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:3000/api/v1/hotels/${hotelId}`,
+        `https://kefi-hotel-booking-app.onrender.com/api/v1/hotels/${hotelId}`,
       );
 
       if (response.data) {
@@ -54,7 +54,8 @@ const singleHotelSlice = createSlice({
   },
 });
 
-export const { actions: singleHotelActions, reducer: singleHotelReducer } = singleHotelSlice;
+export const { actions: singleHotelActions, reducer: singleHotelReducer } =
+  singleHotelSlice;
 
 export const selectSingleHotel = (state) => state.singleHotel.hotel;
 export const selectSingleHotelLoading = (state) => state.singleHotel.loading;
