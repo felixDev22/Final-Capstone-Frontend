@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export const logoutUser = createAsyncThunk("logout", async (_, thunkAPI) => {
-  const logoutUrl = "https://kefi-hotel-booking-app.onrender.com/logout";
+export const logoutUser = createAsyncThunk('logout', async (_, thunkAPI) => {
+  const logoutUrl = 'https://kefi-hotel-booking-app.onrender.com/logout';
 
   try {
     await axios.post(logoutUrl);
@@ -15,11 +15,11 @@ export const logoutUser = createAsyncThunk("logout", async (_, thunkAPI) => {
 const initialState = {
   data: {},
   islogged: false,
-  errors: "",
+  errors: '',
 };
 
 const logoutSlice = createSlice({
-  name: "logout",
+  name: 'logout',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(logoutUser.fulfilled, (state) => {
@@ -28,7 +28,7 @@ const logoutSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.isLogged = false;
       // eslint-disable-next-line no-param-reassign
-      state.errors = "";
+      state.errors = '';
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
       // eslint-disable-next-line no-param-reassign
